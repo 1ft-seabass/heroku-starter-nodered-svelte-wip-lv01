@@ -164,7 +164,7 @@ module.exports = {
      * The following property can be used to specify a different root path.
      * If set to false, this is disabled.
      */
-    //httpAdminRoot: '/admin',
+    httpAdminRoot: '/admin',
 
     /** The following property can be used to add a custom middleware function
      * in front of all admin http routes. For example, to set custom http
@@ -219,7 +219,7 @@ module.exports = {
      * following property can be used to identify a directory of static content
      * that should be served at http://localhost:1880/.
      */
-    //httpStatic: '/home/nol/node-red-static/',
+    httpStatic: './svelte-app/public/',
 
 /*******************************************************************************
  * Runtime Settings
