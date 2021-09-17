@@ -218,9 +218,9 @@
             "mqtt": {
                 "name": "mqtt",
                 "types": [
+                    "mqtt-broker",
                     "mqtt in",
-                    "mqtt out",
-                    "mqtt-broker"
+                    "mqtt out"
                 ],
                 "enabled": true,
                 "local": false,
@@ -254,10 +254,10 @@
             "websocket": {
                 "name": "websocket",
                 "types": [
-                    "websocket in",
-                    "websocket out",
                     "websocket-listener",
-                    "websocket-client"
+                    "websocket-client",
+                    "websocket in",
+                    "websocket out"
                 ],
                 "enabled": true,
                 "local": false,

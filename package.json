@@ -4,10 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "node-red-no-editor":"./node_modules/.bin/node-red -p 18801 -u ./node-red_dir -s ./node-red_dir/settings.js -D httpAdminRoot=false",
+    "node-red-no-editor": "./node_modules/.bin/node-red -u ./node-red_dir -s ./node-red_dir/settings.js -D httpAdminRoot=false",
     "node-red": "./node_modules/.bin/node-red -p 18801 -u ./node-red_dir -s ./node-red_dir/settings.js",
-    "init":"npm run init:mkdir && npm run init:get-settings.js",
-    "init:mkdir":"node -e \"console.log('[START] mkdir-node-red_dir');const fs = require('fs');const path_nodered_dir = './node-red_dir';if (fs.existsSync(path_nodered_dir)) {console.log( '[ALERT] ' + path_nodered_dir + ' has existed!');} else {console.log('[OK] mkdir -> ' + path_nodered_dir );fs.mkdirSync(path_nodered_dir);}\"",
+    "init": "npm run init:mkdir && npm run init:get-settings.js",
+    "init:mkdir": "node -e \"console.log('[START] mkdir-node-red_dir');const fs = require('fs');const path_nodered_dir = './node-red_dir';if (fs.existsSync(path_nodered_dir)) {console.log( '[ALERT] ' + path_nodered_dir + ' has existed!');} else {console.log('[OK] mkdir -> ' + path_nodered_dir );fs.mkdirSync(path_nodered_dir);}\"",
     "init:get-settings.js": "node -e \"const url = 'https://raw.githubusercontent.com/node-red/node-red/master/packages/node_modules/node-red/settings.js';const stream_output_path = './node-red_dir/settings.js';if (fs.existsSync(stream_output_path)) {console.log( '[ALERT] ' + stream_output_path + ' has existed!');} else {console.log('[START] download settings.js ...');const https = require('https');const fs = require('fs');const stream = fs.createWriteStream(stream_output_path);https.get(url, function(res){res.pipe(stream);res.on('end', function () {stream.close();console.log('[OK] got settings.js! -> ' + stream_output_path);});});}\""
   },
   "repository": {
@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/1ft-seabass/heroku-starter-nodered-svelte-wip-lv01/issues"
   },
-  "homepage": "https://github.com/1ft-seabass/heroku-starter-nodered-svelte-wip-lv01#readme"
+  "homepage": "https://github.com/1ft-seabass/heroku-starter-nodered-svelte-wip-lv01#readme",
+  "dependencies": {
+    "node-red": "^2.0.6"
+  }
 }
