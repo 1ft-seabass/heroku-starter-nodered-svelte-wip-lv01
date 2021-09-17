@@ -12,3 +12,5 @@
   - [Node\-RED のプロジェクト内で Svelte を動かすメモ – 1ft\-seabass\.jp\.MEMO](https://www.1ft-seabass.jp/memo/2021/09/14/node-red-and-svelte-collaboration-basic/)
   - [Node\-RED と Svelte が連携したプロジェクトに Bootstrap を導入するメモ – 1ft\-seabass\.jp\.MEMO](https://www.1ft-seabass.jp/memo/2021/09/15/node-red-and-svelte-and-bootstrap-collaboration-basic/)
   - [Node\-RED と Svelte が連携したプロジェクトで axios を導入し Node\-RED http ノードからデータ取得するメモ – 1ft\-seabass\.jp\.MEMO](https://www.1ft-seabass.jp/memo/2021/09/16/node-red-and-svelte-and-axios-collaboration-basic/)
+- 開発サーバーと公開サーバー(Heroku) の準備
+  - [起動パラメータから Node\-RED エディタ画面の有効・無効を出し分けるメモ – 1ft\-seabass\.jp\.MEMO](https://www.1ft-seabass.jp/memo/2021/09/17/node-red-switch-editor-access/)
