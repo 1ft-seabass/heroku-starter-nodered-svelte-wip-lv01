@@ -73,14 +73,41 @@ module.exports = {
     /** To password protect the Node-RED editor and admin API, the following
      * property can be used. See http://nodered.org/docs/security.html for details.
      */
-    //adminAuth: {
-    //    type: "credentials",
-    //    users: [{
-    //        username: "admin",
-    //        password: "$2a$08$zZWtXTja0fB1pzD4sHCMyOCMYz2Z6dNbM6tl8sJogENOMcxWV9DN.",
-    //        permissions: "*"
-    //    }]
-    //},
+    adminAuth: {
+      type: "credentials",
+      users: function(username) {
+        return new Promise(function(resolve) {
+          // ここでユーザ名が許可されたユーザかどうかを
+          // チェックする処理を行う
+          if (process.env.NODERED_LOGIN_ID == username) {
+            // ユーザ名が存在すればユーザオブジェクトを返す。
+            // 'username' と 'permissions' プロパティは必須です。
+            var user = { username: process.env.NODERED_LOGIN_ID, permissions: "*" };
+            resolve(user);
+          } else {
+            // ユーザ名が存在しない場合はnullを返す。
+            resolve(null);
+          }
+        });
+      },
+      authenticate: function(username, password) {
+        return new Promise(function(resolve) {
+          // ここでユーザー名/パスワードの組み合わせを
+          // チェックする処理を行う
+          if (process.env.NODERED_LOGIN_ID == username &&
+            process.env.NODERED_LOGIN_PASSWORD == password) {
+              // ユーザー名/パスワードの組み合わせが有効な場合はユーザオブジェクトを返す。
+              // users(username);を呼び出すのと同様です。
+              var user = { username: process.env.NODERED_LOGIN_ID, permissions: "*" };
+              resolve(user);
+          } else {
+              // ユーザー名/パスワードの組み合わせが無効な場合は
+              // nullを返す。
+              resolve(null);
+          }
+        });
+      }
+    },
 
     /** The following property can be used to enable HTTPS
      * This property can be either an object, containing both a (private) key
@@ -190,10 +217,10 @@ module.exports = {
      * See https://github.com/troygoode/node-cors#configuration-options for
      * details on its contents. The following is a basic permissive set of options:
      */
-    httpNodeCors: {
-      origin: [ "http://localhost:5000" ],
-      methods: "GET,PUT,POST,DELETE"
-    },
+    //httpNodeCors: {
+    //    origin: "*",
+    //    methods: "GET,PUT,POST,DELETE"
+    //},
 
     /** If you need to set an http proxy please set an environment variable
      * called http_proxy (or HTTP_PROXY) outside of Node-RED in the operating system.
@@ -219,7 +246,7 @@ module.exports = {
      * following property can be used to identify a directory of static content
      * that should be served at http://localhost:1880/.
      */
-    httpStatic: './svelte-app/public/',
+    httpStatic: './node-red-static/',
 
 /*******************************************************************************
  * Runtime Settings

@@ -1,1 +1,1 @@
-web: npm run node-red-no-editor
+web: npm run heroku
