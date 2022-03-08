@@ -44,8 +44,8 @@
                 "t": "set",
                 "p": "payload.timestamp",
                 "pt": "msg",
-                "to": "てすと",
-                "tot": "str"
+                "to": "",
+                "tot": "date"
             }
         ],
         "action": "",
