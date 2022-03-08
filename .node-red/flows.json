@@ -7,7 +7,7 @@
         "info": ""
     },
     {
-        "id": "0a02324a2c7b357e",
+        "id": "357c66447b2fa80b",
         "type": "http in",
         "z": "1cfcde9238a4955f",
         "name": "",
@@ -16,39 +16,49 @@
         "upload": false,
         "swaggerDoc": "",
         "x": 120,
-        "y": 160,
+        "y": 100,
         "wires": [
             [
-                "f40e5c6c4cbfd700",
-                "0d089f742d65a107"
+                "c6028d3ea1bc4d91"
             ]
         ]
     },
     {
-        "id": "f40e5c6c4cbfd700",
+        "id": "9f1b50a74ca8a564",
         "type": "http response",
         "z": "1cfcde9238a4955f",
         "name": "",
         "statusCode": "",
         "headers": {},
-        "x": 360,
-        "y": 160,
+        "x": 490,
+        "y": 100,
         "wires": []
     },
     {
-        "id": "0d089f742d65a107",
-        "type": "debug",
+        "id": "c6028d3ea1bc4d91",
+        "type": "change",
         "z": "1cfcde9238a4955f",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 380,
+        "name": "タイムスタンプ",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload.timestamp",
+                "pt": "msg",
+                "to": "",
+                "tot": "date"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 320,
         "y": 100,
-        "wires": []
+        "wires": [
+            [
+                "9f1b50a74ca8a564"
+            ]
+        ]
     }
 ]

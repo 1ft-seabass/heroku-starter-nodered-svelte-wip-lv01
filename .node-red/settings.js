@@ -217,10 +217,10 @@ module.exports = {
      * See https://github.com/troygoode/node-cors#configuration-options for
      * details on its contents. The following is a basic permissive set of options:
      */
-    //httpNodeCors: {
-    //    origin: "*",
-    //    methods: "GET,PUT,POST,DELETE"
-    //},
+    httpNodeCors: {
+      origin: [ "http://localhost:5000" ],
+      methods: "GET,PUT,POST,DELETE"
+    },
 
     /** If you need to set an http proxy please set an environment variable
      * called http_proxy (or HTTP_PROXY) outside of Node-RED in the operating system.
@@ -246,7 +246,7 @@ module.exports = {
      * following property can be used to identify a directory of static content
      * that should be served at http://localhost:1880/.
      */
-    httpStatic: './node-red-static/',
+     httpStatic: './svelte-app/public/',
 
 /*******************************************************************************
  * Runtime Settings
