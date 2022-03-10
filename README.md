@@ -25,3 +25,5 @@
     - Svelte の npm i axios で axios インストール
     - Node-RED に api1 のフローを設置
     - Svelte の Rollup.js を axios に対応させるため修正
+
+    
